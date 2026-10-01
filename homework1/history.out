@@ -1,0 +1,4 @@
+    1  sudo timedatectl set-time "2026-10-10 14:00:00"
+    2  sudo timedatectl set-ntp false
+    3  sudo timedatectl set-time "2026-10-10 14:00:00"
+    4  history > ~/history.out
