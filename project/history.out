@@ -1,0 +1,50 @@
+    1  ip a
+    2  ip foute
+    3  ip route
+    4  ping -c 4 8.8.8.8
+    5  hostnamectl set-hostname mephi-2026.domain.local
+    6  ping -c 4 8.8.8.8
+    7  ping -c 4 8.8.8.8 > ~/ping.out
+    8  sudo dnf update -y
+    9  nmcli connection show
+   10  sudo nmcli connection mpdify "enp0s3" ipv4.dns "77.88.8.8 8.8.8.8"
+   11  sudo nmcli connection modify "enp0s3" ipv4.dns "77.88.8.8 8.8.8.8"
+   12  sudo nmcli connection "enp0s3"
+   13  sudo nmcli connection up "enp0s3"
+   14  ping -c 4 repo.red-soft.ru
+   15  sudo dnf update -y
+   16  sudo dnf install -y nginx libcap-ng-utils
+   17  sudo dnf download tcpdump --destdir=/tmp
+   18  sudo rpm -ivh /tcp/tcpdump-*.rpm
+   19  sudo rpm -ivh /tcp/tcpdump-4.99.5-1.red80.x86_64.rpm
+   20  sudo rpm -ivh /tmp/tcpdump-*.rpm
+   21  sudo rpm -ivh /tmp/tcpdump-4.99.5-1.red80.x86_64.rpm
+   22  dnf history > ~/dnf.out
+   23  dnf history
+   24  sudo fdisk /dev/sdb
+   25  sudo mkfs.ext4 -L MEPHI_WEB /dev.sdb1
+   26  lsblk
+   27  sudo setcap cap_net_admin=ep /usr/sbin/tcpdump
+   28  getcap /usr/sbin/tcpdump
+   29  sudo setcap cap_net_raw=ep /usr/sbin/tcpdump
+   30  getcap /usr/sbin/tcpdump
+   31  getcap /usr/sbin/tcpdump > ~/getcap.out
+   32  sudo -u user1 tcpdump -c 1 -i lo
+   33  getenforce
+   34  sudo dnf install -y selinux-policy-devel policycoreutils-python-utils
+   35  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+   36  sudo restorecon -Rv /mephi-web
+   37  usermod -s /sbin/nologin curator1
+   38  usermod -s /sbin/nologin curator2
+   39  chage -M 90 user1
+   40  chage -M 90 user2
+   41  chage -M 90 user3
+   42  chage -M 90 curator1
+   43  chage -M 90 curator2
+   44  sed -i 's/^#\?minlen.*/minlen = 12/' /etc/security/pwquality.conf
+   45  echo "Hello from Stident: 265263" | sudo tee /mephi-web/index.html
+   46  curl http://localhost/
+   47  curl http://localhost/ > ~/curl.out
+   48  cat ~/curl.out
+   49  history 
+   50  history >~/history.out
