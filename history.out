@@ -24,27 +24,53 @@
    24  sudo fdisk /dev/sdb
    25  sudo mkfs.ext4 -L MEPHI_WEB /dev.sdb1
    26  lsblk
-   27  sudo setcap cap_net_admin=ep /usr/sbin/tcpdump
-   28  getcap /usr/sbin/tcpdump
-   29  sudo setcap cap_net_raw=ep /usr/sbin/tcpdump
-   30  getcap /usr/sbin/tcpdump
-   31  getcap /usr/sbin/tcpdump > ~/getcap.out
-   32  sudo -u user1 tcpdump -c 1 -i lo
-   33  getenforce
-   34  sudo dnf install -y selinux-policy-devel policycoreutils-python-utils
-   35  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
-   36  sudo restorecon -Rv /mephi-web
-   37  usermod -s /sbin/nologin curator1
-   38  usermod -s /sbin/nologin curator2
-   39  chage -M 90 user1
-   40  chage -M 90 user2
-   41  chage -M 90 user3
-   42  chage -M 90 curator1
-   43  chage -M 90 curator2
-   44  sed -i 's/^#\?minlen.*/minlen = 12/' /etc/security/pwquality.conf
-   45  echo "Hello from Stident: 265263" | sudo tee /mephi-web/index.html
-   46  curl http://localhost/
-   47  curl http://localhost/ > ~/curl.out
-   48  cat ~/curl.out
-   49  history 
-   50  history >~/history.out
+   27  cd ~/mephi-project
+   28  git pull
+   29  git push
+   30  git push -u origin main
+   31  git push -u origin main -f
+   32  git fetch origin
+   33  git merge origin/main --allow-unrelated-histories
+   34  git push -u origin main
+   35  git pull
+   36  git push -u origin main
+   37  grep -rn "root" /etc/nginx/nginx.conf /etc/nginx/conf.d 2>del/null
+   38  grep -rn "root " /etc/nginx/nginx.conf /etc/nginx/conf.d/ 2>del/null
+   39  grep -rn "root " /etc/nginx/nginx.conf /etc/nginx/conf.d/ 2>dev/null
+   40  grep -rn "root " /etc/nginx/nginx.conf /etc/nginx/conf.d/ 2>/dev/null
+   41  sed -i 's|root[[:space:]]+/usr/share/nginx/html;|root /mephi-web;|' /etc/nginx.conf
+   42  sed -i 's|root[[:space:]]+/usr/share/nginx/html;|root /mephi-web;|' /etc/nginx/nginx.conf
+   43  grep -rn "root " /etc/nginx/nginx.conf /etc/nginx/conf.d/ 2>/dev/null
+   44  ls -Z /mephi-web/
+   45  ls 
+   46  cd mephi-project
+   47  ls
+   48  ls -a
+   49  cat curl.out
+   50  ls -la /mephi-web/
+   51  cat /mephi-web/index.html
+   52  nginx -t
+   53  systemctl restart nginx
+   54  curl http://localhost/ > ~/curl.out
+   55  cat curl.out
+   56  nginx -T | grep -nE "server_name|listen|roo"
+   57  nginx -T | grep -nE "server_name|listen|root"
+   58  namei -l /mephi-web/index.html
+   59  ls -Z /mephi-web/index.html
+   60  tail -n 50 /var/log/nginx/error.log
+   61  cat curl.out
+   62  cat /mephi-web/index.html
+   63  systemctl restrart nginx
+   64  service nginx restart
+   65  sudo systemctl restart nginx
+   66  curl http://localhost/
+   67  cat /mephi-web/index.html
+   68  cat curl.out
+   69  curl http://localhost/ > curl.out
+   70  cat curl.out
+   71  git add
+   72  git add .
+   73  git commit -m "исправление curl"
+   74  git config --global --edit
+   75  git push
+   76  history > ~history.out
